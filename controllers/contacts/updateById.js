@@ -1,12 +1,9 @@
 const contacts = require("../../models/contacts");
-const { updateValidate } = require("../../middlewares");
 
 const { RequestError } = require("../../helpers");
 
 const updateById = async (req, res, next) => {
   try {
-    updateValidate(req);
-
     const { contactId } = req.params;
     const updateContact = await contacts.updateContact(contactId, req.body);
 
