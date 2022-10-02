@@ -2,21 +2,21 @@ const { Contact } = require("../../models");
 
 const { RequestError } = require("../../helpers");
 
-const updateById = async (req, res, next) => {
+const updateStatusContact = async (req, res, next) => {
   try {
     const { contactId } = req.params;
-    const updateContact = await Contact.findByIdAndUpdate(contactId, req.body, {
+    const updateStatus = await Contact.findByIdAndUpdate(contactId, req.body, {
       new: true,
     });
 
-    if (!updateContact) {
+    if (!updateStatus) {
       throw RequestError(404, "Not found");
     }
 
-    res.status(200).json(updateContact);
+    res.status(200).json(updateStatus);
   } catch (error) {
     next(error);
   }
 };
 
-module.exports = updateById;
+module.exports = updateStatusContact;

@@ -1,11 +1,11 @@
 const { RequestError } = require("../helpers");
 
-const updateValidate = (schema) => {
+const updateStatusValidate = (schema) => {
   const func = (req, res, next) => {
     const { error } = schema.validate(req.body);
 
     if (Object.keys(req.body).length === 0) {
-      throw RequestError(400, "missing fields");
+      throw RequestError(400, "missing field favorite");
     }
 
     if (error) {
@@ -18,4 +18,4 @@ const updateValidate = (schema) => {
   return func;
 };
 
-module.exports = updateValidate;
+module.exports = updateStatusValidate;
