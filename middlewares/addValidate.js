@@ -1,26 +1,31 @@
-const { addSchema } = require("../schemas/contacts");
 const { RequestError } = require("../helpers");
 
-const addValidate = (req, res) => {
-  const { name, email, phone } = req.body;
+const addValidate = (schema) => {
+  const func = (req, res, next) => {
+    const { name, email, phone } = req.body;
 
-  if (!name) {
-    return res.status(400).json({ message: "missing required name field" });
-  }
+    if (!name) {
+      return res.status(400).json({ message: "missing required name field" });
+    }
 
-  if (!email) {
-    return res.status(400).json({ message: "missing required email field" });
-  }
+    if (!email) {
+      return res.status(400).json({ message: "missing required email field" });
+    }
 
-  if (!phone) {
-    return res.status(400).json({ message: "missing required phone field" });
-  }
+    if (!phone) {
+      return res.status(400).json({ message: "missing required phone field" });
+    }
 
-  const { error } = addSchema.validate(req.body);
+    const { error } = schema.validate(req.body);
 
-  if (error) {
-    throw RequestError(400, error.message);
-  }
+    if (error) {
+      next(RequestError(400, error.message));
+    }
+
+    next();
+  };
+
+  return func;
 };
 
 module.exports = addValidate;
