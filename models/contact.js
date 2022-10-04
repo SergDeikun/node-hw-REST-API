@@ -18,6 +18,11 @@ const contactSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  // TODO потрібно додати
+  // owner: {
+  //   type: SchemaTypes.ObjectId,
+  //   ref: "user",
+  // },
 });
 
 contactSchema.post("save", handleSaveErrors);
