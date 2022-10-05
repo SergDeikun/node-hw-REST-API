@@ -3,7 +3,7 @@ const updateValidate = require("./updateValidate");
 const updateStatusValidate = require("./updateStatusValidate");
 const handleSaveErrors = require("./handleSaveErrors");
 const isValidId = require("./isValidId");
-const registerValidate = require("./registerValidate");
+const authValidate = require("./authValidate");
 
 module.exports = {
   addValidate,
@@ -11,5 +11,5 @@ module.exports = {
   updateStatusValidate,
   handleSaveErrors,
   isValidId,
-  registerValidate,
+  authValidate,
 };

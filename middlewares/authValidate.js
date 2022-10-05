@@ -1,6 +1,6 @@
 const { RequestError } = require("../helpers");
 
-const registerValidate = (schema) => {
+const authValidate = (schema) => {
   const func = (req, res, next) => {
     const { error } = schema.validate(req.body);
 
@@ -13,4 +13,4 @@ const registerValidate = (schema) => {
   return func;
 };
 
-module.exports = registerValidate;
+module.exports = authValidate;

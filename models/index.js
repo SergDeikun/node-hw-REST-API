@@ -1,5 +1,7 @@
 const { User } = require("./user");
-const { registerSchema } = require("./user");
+const { authSchema } = require("./user");
+
+// const { registerSchema } = require("./user");
 // const { loginSchema } = require("./user");
 
 const { Contact } = require("./contact");
@@ -8,7 +10,9 @@ const { updateStatusSchema } = require("./contact");
 
 module.exports = {
   User,
-  registerSchema,
+  authSchema,
+  // registerSchema,
+  // loginSchema,
   Contact,
   addSchema,
   updateStatusSchema,

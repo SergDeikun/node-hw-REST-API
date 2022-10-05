@@ -23,14 +23,20 @@ const userSchema = new Schema({
 
 userSchema.post("save", handleSaveErrors);
 
-const registerSchema = Joi.object({
+const authSchema = Joi.object({
   password: Joi.string().required(),
   email: Joi.string().email().required(),
 });
+
+// const loginSchema = Joi.object({
+//   password: Joi.string().required(),
+//   email: Joi.string().email().required(),
+// });
 
 const User = model("user", userSchema);
 
 module.exports = {
   User,
-  registerSchema,
+  authSchema,
+  // loginSchema,
 };
