@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
 
-const { handleSaveErrors } = require("../middlewares");
+const { handleSaveErrors } = require("../helpers");
 
 const contactSchema = new Schema({
   name: {
@@ -18,11 +18,10 @@ const contactSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  // TODO потрібно додати
-  // owner: {
-  //   type: SchemaTypes.ObjectId,
-  //   ref: "user",
-  // },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+  },
 });
 
 contactSchema.post("save", handleSaveErrors);

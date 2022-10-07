@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const Joi = require("joi");
 
-const { handleSaveErrors } = require("../middlewares");
+const { handleSaveErrors } = require("../helpers");
 
 const userSchema = new Schema({
   password: {
@@ -28,15 +28,9 @@ const authSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
-// const loginSchema = Joi.object({
-//   password: Joi.string().required(),
-//   email: Joi.string().email().required(),
-// });
-
 const User = model("user", userSchema);
 
 module.exports = {
   User,
   authSchema,
-  // loginSchema,
 };
