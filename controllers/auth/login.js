@@ -30,7 +30,7 @@ const login = async (req, res, next) => {
     res.json({
       token,
       user: {
-        email: user.email, // ? як правильно писфти - email чи user.email
+        email: user.email,
         subscription: "starter",
       },
     });

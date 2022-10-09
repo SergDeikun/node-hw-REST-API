@@ -5,6 +5,7 @@ const handleSaveErrors = require("../helpers/handleSaveErrors");
 const isValidId = require("./isValidId");
 const authValidate = require("./authValidate");
 const authenticate = require("./authenticate");
+const subscriptionValidate = require("./subscriptionValidate");
 
 module.exports = {
   addValidate,
@@ -14,4 +15,5 @@ module.exports = {
   isValidId,
   authValidate,
   authenticate,
+  subscriptionValidate,
 };

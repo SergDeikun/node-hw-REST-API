@@ -28,9 +28,14 @@ const authSchema = Joi.object({
   email: Joi.string().email().required(),
 });
 
+const subscriptionShema = Joi.object({
+  subscription: Joi.string().required().allow("starter", "pro", "business"),
+});
+
 const User = model("user", userSchema);
 
 module.exports = {
   User,
   authSchema,
+  subscriptionShema,
 };
