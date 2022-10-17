@@ -7,12 +7,14 @@ const {
   getCurrent,
   logout,
   subscription,
+  updateAvatar,
 } = require("../../controllers/auth");
 
 const {
   authValidate,
   authenticate,
   subscriptionValidate,
+  upload,
 } = require("../../middlewares");
 const { authSchema, subscriptionShema } = require("../../models");
 
@@ -23,6 +25,8 @@ router.post("/login", authValidate(authSchema), login);
 router.get("/current", authenticate, getCurrent);
 
 router.get("/logout", authenticate, logout);
+
+router.patch("/avatars", authenticate, upload.single("avatar"), updateAvatar);
 
 router.patch(
   "/",
