@@ -6,6 +6,7 @@ const isValidId = require("./isValidId");
 const authValidate = require("./authValidate");
 const authenticate = require("./authenticate");
 const subscriptionValidate = require("./subscriptionValidate");
+const upload = require("./upload");
 
 module.exports = {
   addValidate,
@@ -16,4 +17,5 @@ module.exports = {
   authValidate,
   authenticate,
   subscriptionValidate,
+  upload,
 };
