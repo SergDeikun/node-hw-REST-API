@@ -7,6 +7,7 @@ const authValidate = require("./authValidate");
 const authenticate = require("./authenticate");
 const subscriptionValidate = require("./subscriptionValidate");
 const upload = require("./upload");
+const resentEmailValidate = require("./resentEmailValidate");
 
 module.exports = {
   addValidate,
@@ -18,4 +19,5 @@ module.exports = {
   authenticate,
   subscriptionValidate,
   upload,
+  resentEmailValidate,
 };

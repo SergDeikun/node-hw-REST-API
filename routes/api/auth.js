@@ -3,6 +3,8 @@ const router = express.Router();
 
 const {
   register,
+  verify,
+  resendVerify,
   login,
   getCurrent,
   logout,
@@ -15,10 +17,19 @@ const {
   authenticate,
   subscriptionValidate,
   upload,
+  resentEmailValidate,
 } = require("../../middlewares");
-const { authSchema, subscriptionShema } = require("../../models");
+const {
+  authSchema,
+  verifyEmailShema,
+  subscriptionShema,
+} = require("../../models");
 
 router.post("/register", authValidate(authSchema), register);
+
+router.get("/verify/:verificationToken", verify);
+
+router.post("/verify", resentEmailValidate(verifyEmailShema), resendVerify);
 
 router.post("/login", authValidate(authSchema), login);
 
